@@ -74,21 +74,14 @@ void setDLPFMode(uint8_t bandwidth);
 ```
 Hvor bandwidth er et heltal mellem 0 til 6 som giver følgende konfiguration af lavpasfilteret:
 | DLPF int | Accl bandwidth | Accl delay | Gyro bandwidth | Gyro delay | Gyro sample rate |
-| ---      | ---            | ---        | ---             | ---        | ---              |
-| 0        | 260 Hz         | 0 ms       | 256 Hz          | 0.98 ms    | 8 kHz            |
-| 1        | 184 Hz         | 2.0 ms     | 188 Hz          | 1.9 ms     | 1 kHz            |
-| 2        | 94 Hz          | 3.0 ms     | 98 Hz           | 2.8 ms     | 1 kHz            |
-| 3        | 44 Hz          | 4.9 ms     | 42 Hz           | 4.8 ms     | 1 kHz            |
-| 4        | 21 Hz          | 8.5 ms     | 20 Hz           | 8.3 ms     | 1 kHz            |
+| ---      | ---            | ---        | ---            | ---        | ---              |
+| 0        | 260 Hz         | 0 ms       | 256 Hz         | 0.98 ms    | 8 kHz            |
+| 1        | 184 Hz         | 2.0 ms     | 188 Hz         | 1.9 ms     | 1 kHz            |
+| 2        | 94 Hz          | 3.0 ms     | 98 Hz          | 2.8 ms     | 1 kHz            |
+| 3        | 44 Hz          | 4.9 ms     | 42 Hz          | 4.8 ms     | 1 kHz            |
+| 4        | 21 Hz          | 8.5 ms     | 20 Hz          | 8.3 ms     | 1 kHz            |
 | 5        | 10 Hz          | 13.8 ms    | 10 Hz          | 13.4 ms    | 1 kHz            |
 | 6        | 5 Hz           | 19.0 ms    | 5 Hz           | 18.6 ms    | 1 kHz            |
-
-### Aktiver digital højpasfilter
-
-```C++
-uint8_t getDHPFMode();
-void setDHPFMode(uint8_t mode);
-```
 
 ### Set gyro range
 For at indstille eller hente rangen på gyroskopet anvendes følgende funktioner:
@@ -96,13 +89,27 @@ For at indstille eller hente rangen på gyroskopet anvendes følgende funktioner
 uint8_t getFullScaleGyroRange();
 void setFullScaleGyroRange(uint8_t range);
 ```
+Hvor range er et heltal fra 0 til 3 svarende til følgende range:
+| Range int | Full scale range |
+| ---       | ---              |
+| 0         | +/- 250 deg/s    |
+| 1         | +/- 500 deg/s    |
+| 2         | +/- 1000 deg/s   |
+| 3         | +/- 2000 deg/s   |
 
 ### Set accl range
-
+For at indstille eller hente rangen på accelerometeret anvendes følgende funktioner:
 ```C++
 uint8_t getFullScaleAccelRange();
 void setFullScaleAccelRange(uint8_t range);
 ```
+Hvor range er et heltal fra 0 til 3 svarende til følgende range:
+| Range int | Full scale range |
+| ---       | ---              |
+| 0         | +/- 2 g          |
+| 1         | +/- 4 g          |
+| 2         | +/- 8 g          |
+| 3         | +/- 16 g         |
 
 ## Test funktioner
 For at bruge testfunktionerne skal følgende bibliotek inkluderes i toppen af ```main.cpp``` filen: 
